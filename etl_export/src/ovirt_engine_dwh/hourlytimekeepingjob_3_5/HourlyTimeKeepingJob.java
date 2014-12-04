@@ -4258,9 +4258,9 @@ public class HourlyTimeKeepingJob implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_2 = "SELECT 'continueAgg', '1' FROM history_configuration WHERE var_name = 'lastHourAggr' AND var_datetime < '"
-						+ TalendDate.addDate(
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ").format(TalendDate.addDate(
 								RoutineHistoryETL.startOfHour(context.runTime),
-								-1, "HH") + "' ";
+								-1, "HH")) + "' ";
 
 				globalMap.put("tJDBCInput_2_QUERY", dbquery_tJDBCInput_2);
 				java.sql.ResultSet rs_tJDBCInput_2 = null;
