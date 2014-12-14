@@ -4415,9 +4415,9 @@ public class DailyTimeKeepingJob implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_2 = "SELECT DISTINCT 'continueAgg', '1' FROM history_configuration WHERE var_name = 'lastDayAggr' 	AND var_datetime < '"
-						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ").format(TalendDate.addDate(
+						+ TalendDate.newAddDate(
 								RoutineHistoryETL.startOfDay(context.runTime),
-								-1, "dd"))
+								-1, "dd")
 						+ "' 	AND 		CASE 			WHEN 				var_datetime = '"
 						+ RoutineHistoryETL.startOfDay(context.lastHourAggr)
 						+ "' 				AND 'true' = 					( 						SELECT var_value 						FROM history_configuration 						WHERE var_name = 'HourlyAggFailed' 					) 				THEN FALSE 			ELSE TRUE 		END ";
