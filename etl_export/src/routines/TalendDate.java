@@ -330,6 +330,51 @@ public class TalendDate {
      * ->> addDate(2008/11/24 12:15:25, 5,"ss") return 2008/11/24 12:15:30 #
      * 
      */
+    public static String newAddDate(Date date, int nb, String dateType)
+    {
+        if (date == null || dateType == null)
+        {
+          return null;
+        }
+        Calendar c1 = Calendar.getInstance();
+        c1.setTime(date);
+        if(dateType.equalsIgnoreCase("yyyy"))
+        {
+           c1.add(Calendar.TEAR, nb);
+        }
+        else if(dateType.equals("MM"))
+        {
+           c1.add(Calendar.MONTH, nb);
+        }
+        else if(dateType.equalsIgnoreCase("dd"))
+        {
+           c1.add(Calendar.DAY_OF_MONTH, nb);
+        }
+        else if(dateType.equals("HH"))
+        {
+           c1.add(Calendar.HOUR, nb);
+        }
+        else if(dateType.equals("mm"))
+        {
+           c1.add(Calendar.MINUTE, nb);
+        }
+        else if(dateType.equalsIgnoreCase("ss"))
+        {
+           c1.add(Calendar.SECOND, nb);
+        }
+        else if(dateType.equalsIgnoreCase("SSS"))
+        {
+           c1.add(Calendar.MILLISECOND, nb);
+        }
+        else
+        {
+           throw new RuntimeException("Can't support the dateType: " + dateType);
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        Date dateReceived = c1.getTime();
+        String result = sdf.format(dateReceived);
+        return result;
+    }
     public static Date addDate(Date date, int nb, String dateType) {
         if (date == null || dateType == null) {
             return null;

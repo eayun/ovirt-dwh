@@ -2122,9 +2122,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_1 = "SELECT history_id,  		history_datetime,        	datacenter_id,        	datacenter_status,        	minutes_in_status,  		datacenter_configuration_version  FROM datacenter_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,        	 datacenter_id,        	 datacenter_status";
 
 				globalMap.put("tJDBCInput_1_QUERY", dbquery_tJDBCInput_1);
@@ -5262,9 +5262,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_2 = "SELECT     history_id,     history_datetime,     host_id,     host_status,     minutes_in_status,     memory_usage_percent,    ksm_shared_memory_mb,    cpu_usage_percent,     ksm_cpu_percent,     active_vms,     total_vms,     total_vms_vcpus,     cpu_load,     system_cpu_usage_percent,     user_cpu_usage_percent,     swap_used_mb,     host_configuration_version  FROM host_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,  		 host_id,        	 host_status";
 
 				globalMap.put("tJDBCInput_2_QUERY", dbquery_tJDBCInput_2);
@@ -7940,9 +7940,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_3 = "SELECT     history_id,     history_datetime,     host_interface_id,     receive_rate_percent,     transmit_rate_percent,     host_interface_configuration_version  FROM host_interface_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,        	 host_interface_id";
 
 				globalMap.put("tJDBCInput_3_QUERY", dbquery_tJDBCInput_3);
@@ -10727,9 +10727,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_4 = "SELECT     history_id,     history_datetime,     vm_id,     vm_status,     minutes_in_status,     cpu_usage_percent,     memory_usage_percent,     user_cpu_usage_percent,     system_cpu_usage_percent,    vm_ip,    current_user_id,   user_logged_in_to_guest,    currently_running_on_host,     vm_configuration_version,     current_host_configuration_version  FROM vm_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,        	 vm_id,  		 vm_status";
 
 				globalMap.put("tJDBCInput_4_QUERY", dbquery_tJDBCInput_4);
@@ -13065,9 +13065,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_5 = "SELECT     history_id,     history_datetime,     vm_interface_id,     receive_rate_percent,     transmit_rate_percent,     vm_interface_configuration_version  FROM vm_interface_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,  		 vm_interface_id";
 
 				globalMap.put("tJDBCInput_5_QUERY", dbquery_tJDBCInput_5);
@@ -14995,9 +14995,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_11 = "SELECT     history_id,   history_datetime,    storage_domain_id,    storage_domain_status,   minutes_in_status,   available_disk_size_gb,    used_disk_size_gb,    storage_configuration_version FROM storage_domain_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,        	 storage_domain_id";
 
 				globalMap.put("tJDBCInput_11_QUERY", dbquery_tJDBCInput_11);
@@ -17691,9 +17691,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_13 = "SELECT history_datetime, 		vm_disk_id,         image_id, 		vm_disk_status,  		minutes_in_status, 		vm_disk_actual_size_mb, 		read_rate_bytes_per_second, 		read_latency_seconds, 		write_rate_bytes_per_second, 		write_latency_seconds, 		flush_latency_seconds, 		vm_disk_configuration_version  FROM vm_disk_samples_history  WHERE history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,  		 vm_disk_id,     		 vm_disk_status";
 
 				globalMap.put("tJDBCInput_13_QUERY", dbquery_tJDBCInput_13);
@@ -20486,9 +20486,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_9 = "SELECT date_trunc('hour', history_datetime), vm_id, disks_usage FROM vm_disks_usage_samples_history WHERE history_id in (SELECT max(history_id)                       FROM vm_disks_usage_samples_history                       GROUP BY vm_id, date_trunc('hour', history_datetime))  AND history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "' ";
 
 				globalMap.put("tJDBCInput_9_QUERY", dbquery_tJDBCInput_9);
@@ -23538,9 +23538,9 @@ public class AggregationToHourly implements TalendJob {
 						.createStatement();
 
 				String dbquery_tJDBCInput_10 = "SELECT     history_id,    history_datetime,   current_user_id,   current_user_name,   cast(user_logged_in_to_guest as int),    vm_id,    minutes_in_status,    cpu_usage_percent,    memory_usage_percent,    user_cpu_usage_percent,    system_cpu_usage_percent,    vm_ip,   vm_client_ip,    currently_running_on_host,    vm_configuration_version,    current_host_configuration_version  FROM vm_samples_history  WHERE vm_status = 1 AND history_datetime >= '"
-						+ context.lastHourAggr
+						+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(context.lastHourAggr)
 						+ "' AND history_datetime < '"
-						+ TalendDate.addDate(context.lastHourAggr, 1, "HH")
+						+ TalendDate.newAddDate(context.lastHourAggr, 1, "HH")
 						+ "'  ORDER BY history_datetime,          current_user_name,        	 vm_id";
 
 				globalMap.put("tJDBCInput_10_QUERY", dbquery_tJDBCInput_10);
