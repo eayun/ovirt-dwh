@@ -340,7 +340,7 @@ public class TalendDate {
         c1.setTime(date);
         if(dateType.equalsIgnoreCase("yyyy"))
         {
-           c1.add(Calendar.TEAR, nb);
+           c1.add(Calendar.YEAR, nb);
         }
         else if(dateType.equals("MM"))
         {
