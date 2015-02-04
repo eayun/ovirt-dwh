@@ -6,7 +6,7 @@
 # increment after releasing/branching
 VERSION_MAJOR=3
 VERSION_MINOR=5
-VERSION_PATCH_LEVEL=1
+VERSION_PATCH_LEVEL=2
 VERSION=$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH_LEVEL)
 
 # Milestone is manually specified,
